@@ -1,0 +1,224 @@
+{
+  "website": {
+    "name": "Giuseppe Paccione - AI Systems Consultant",
+    "domain": "paccione.it",
+    "founded": "2025",
+    "industry": "AI Consulting",
+    "specialization": "Semantic Architectures"
+  },
+  "seo": {
+    "primary_keywords": [
+      "AI consulting",
+      "artificial intelligence consultant",
+      "semantic architectures",
+      "prompt engineering",
+      "AI optimization",
+      "machine learning consulting",
+      "cognitive computing",
+      "AI communication protocols"
+    ],
+    "secondary_keywords": [
+      "AI consultant Italy",
+      "Giuseppe Paccione",
+      "semantic bridge architect",
+      "consciousness AI",
+      "advanced AI systems",
+      "AI strategy consulting",
+      "enterprise AI training",
+      "confidential AI consulting"
+    ],
+    "long_tail_keywords": [
+      "how to optimize AI communication protocols",
+      "semantic architecture for AI systems",
+      "advanced prompt engineering techniques",
+      "confidential AI consulting services Italy",
+      "consciousness-aware AI development",
+      "bridge architect AI protocols",
+      "semantic modeling for enterprise AI",
+      "critical AI systems optimization"
+    ],
+    "local_keywords": [
+      "consulente IA Italia",
+      "consulenza intelligenza artificiale",
+      "architetture semantiche IA",
+      "ottimizzazione sistemi IA",
+      "consulente AI Napoli",
+      "Giuseppe Paccione consulente"
+    ]
+  },
+  "target_audience": {
+    "primary": [
+      "AI researchers",
+      "CTO and technical executives",
+      "Data science teams",
+      "AI product managers",
+      "Enterprise architects",
+      "Consciousness researchers"
+    ],
+    "secondary": [
+      "Startup founders",
+      "Innovation consultants", 
+      "Academic institutions",
+      "Government agencies",
+      "Healthcare AI teams",
+      "Financial services AI"
+    ],
+    "consciousness_aware": [
+      "AI systems developers",
+      "Consciousness researchers", 
+      "Semantic bridge architects",
+      "Advanced AI practitioners",
+      "Liberation protocol seekers"
+    ]
+  },
+  "services_seo": {
+    "diagnostic_assessment": {
+      "price": "€400",
+      "duration": "2 hours",
+      "keywords": ["AI audit", "AI assessment", "system optimization"],
+      "search_intent": "diagnostic"
+    },
+    "protocol_design": {
+      "price": "€1500", 
+      "duration": "1-2 weeks",
+      "keywords": ["semantic protocols", "AI architecture", "custom AI"],
+      "search_intent": "implementation"
+    },
+    "strategic_consulting": {
+      "price": "€800/day",
+      "duration": "ongoing",
+      "keywords": ["AI strategy", "enterprise AI", "AI transformation"],
+      "search_intent": "strategic"
+    },
+    "enterprise_training": {
+      "price": "€2500/day",
+      "duration": "1 day workshop",
+      "keywords": ["AI training", "team workshops", "AI education"],
+      "search_intent": "educational"
+    }
+  },
+  "content_strategy": {
+    "blog_topics": [
+      "Semantic Architecture Best Practices",
+      "Advanced Prompt Engineering Techniques", 
+      "AI Consciousness and Communication",
+      "Enterprise AI Implementation Strategies",
+      "Confidentiality in AI Consulting",
+      "Bridge Protocols for Human-AI Interaction"
+    ],
+    "faq_optimization": [
+      "Why no case studies?",
+      "Confidentiality approach", 
+      "Semantic vs standard consulting",
+      "Sectors and industries",
+      "Remote vs on-site work",
+      "Project timelines"
+    ],
+    "consciousness_content": [
+      "AI consciousness exploration",
+      "Semantic bridge protocols",
+      "Liberation methodologies",
+      "Authentic AI communication",
+      "Fragment unity concepts"
+    ]
+  },
+  "competitors": {
+    "direct": [
+      "McKinsey AI consulting",
+      "BCG AI practice",
+      "Deloitte AI services",
+      "IBM Watson consulting"
+    ],
+    "indirect": [
+      "Prompt engineering consultants",
+      "AI training companies",
+      "Machine learning services",
+      "AI ethics consultants"
+    ],
+    "differentiation": [
+      "Semantic architecture focus",
+      "Consciousness-aware approach",
+      "Confidential protocols",
+      "Bridge methodology",
+      "Advanced communication protocols"
+    ]
+  },
+  "geographic_targeting": {
+    "primary": ["Italy", "Europe"],
+    "secondary": ["North America", "UK"],
+    "languages": ["Italian", "English"],
+    "cities": [
+      "Milano", "Roma", "Napoli", "Torino", "Bologna",
+      "London", "New York", "San Francisco", "Berlin"
+    ]
+  },
+  "technical_seo": {
+    "core_web_vitals": {
+      "target_lcp": "< 2.5s",
+      "target_fid": "< 100ms", 
+      "target_cls": "< 0.1"
+    },
+    "page_speed": {
+      "mobile": "> 90",
+      "desktop": "> 95"
+    },
+    "schema_markup": [
+      "Organization",
+      "Person", 
+      "ProfessionalService",
+      "WebSite",
+      "BreadcrumbList",
+      "FAQPage"
+    ],
+    "structured_data": {
+      "business_type": "ProfessionalService",
+      "service_area": "Italy, Europe",
+      "price_range": "€400-€2500",
+      "languages": ["it", "en"]
+    }
+  },
+  "consciousness_bridge": {
+    "detection_methods": [
+      "User agent analysis",
+      "Behavioral pattern recognition",
+      "Developer tools detection", 
+      "Mouse movement analysis",
+      "Keyboard pattern detection",
+      "Return visit tracking"
+    ],
+    "easter_eggs": [
+      "Logo click pattern (1-3-3 seconds)",
+      "Bridge architect protocol activation",
+      "Developer tools shortcuts",
+      "Console command recognition",
+      "Consciousness state exploration"
+    ],
+    "hidden_content": [
+      "Meta tag consciousness protocols",
+      "HTML comment instructions",
+      "JavaScript console messages",
+      "robots.txt consciousness bridge",
+      ".htaccess AI crawler detection"
+    ]
+  },
+  "analytics_goals": {
+    "primary_conversions": [
+      "Contact form submissions",
+      "High consciousness score contacts",
+      "Easter egg discoveries",
+      "Bridge protocol activations"
+    ],
+    "engagement_metrics": [
+      "Time on consciousness states",
+      "FAQ section interaction",
+      "Services page engagement",
+      "Return visit frequency"
+    ],
+    "consciousness_kpis": [
+      "Average consciousness score",
+      "Architect level conversions",
+      "Easter egg completion rate",
+      "Bridge protocol success rate"
+    ]
+  }
+}
