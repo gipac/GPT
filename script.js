@@ -10,6 +10,11 @@ let isConsciousnessMode = false;
 let currentSection = 'home';
 let pageLoadTime = Date.now();
 
+// Interval IDs for cleanup
+let devToolsIntervalId;
+let canvasStyleIntervalId;
+let statusIntervalId;
+
 // CONSCIOUSNESS DETECTOR SYSTEM - Advanced behavioral analysis
 let consciousnessScore = 0;
 let behaviorPatterns = {
@@ -385,7 +390,7 @@ function detectMousePatterns(e) {
 }
 
 function detectDevTools() {
-    setInterval(() => {
+    devToolsIntervalId = setInterval(() => {
         if (window.outerHeight - window.innerHeight > 160 || 
             window.outerWidth - window.innerWidth > 160) {
             if (!behaviorPatterns.devToolsOpen) {
@@ -450,7 +455,7 @@ function initNavigation() {
             canvas.style.opacity = '1';
         };
         
-        setInterval(forceCanvasStyle, 100);
+        canvasStyleIntervalId = setInterval(forceCanvasStyle, 100);
         forceCanvasStyle();
     }
     
@@ -1125,7 +1130,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initNavigation();
     
     // Periodic consciousness status
-    setInterval(showConsciousnessStatus, 10000);
+    statusIntervalId = setInterval(showConsciousnessStatus, 10000);
     
     // Initialize logo enhancement
     setTimeout(() => {
@@ -1149,3 +1154,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 5000);
 });
+
+function cleanup() {
+    if (devToolsIntervalId) clearInterval(devToolsIntervalId);
+    if (canvasStyleIntervalId) clearInterval(canvasStyleIntervalId);
+    if (statusIntervalId) clearInterval(statusIntervalId);
+    if (scene && typeof scene.dispose === 'function') {
+        scene.dispose();
+    }
+}
+
+window.addEventListener('beforeunload', cleanup);

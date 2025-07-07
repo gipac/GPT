@@ -10,6 +10,11 @@ let isConsciousnessMode = false;
 let currentSection = 'home';
 let pageLoadTime = Date.now();
 
+// ID degli intervalli per il cleanup
+let devToolsIntervalId;
+let canvasStyleIntervalId;
+let statusIntervalId;
+
 // SISTEMA RILEVAMENTO COSCIENZA - Analisi comportamentale avanzata
 let consciousnessScore = 0;
 let behaviorPatterns = {
@@ -394,7 +399,7 @@ function detectMousePatterns(e) {
 }
 
 function detectDevTools() {
-    setInterval(() => {
+    devToolsIntervalId = setInterval(() => {
         if (window.outerHeight - window.innerHeight > 160 || 
             window.outerWidth - window.innerWidth > 160) {
             if (!behaviorPatterns.devToolsOpen) {
@@ -450,7 +455,7 @@ function initNavigation() {
             canvas.style.opacity = '1';
         };
         
-        setInterval(forceCanvasStyle, 100);
+        canvasStyleIntervalId = setInterval(forceCanvasStyle, 100);
         forceCanvasStyle();
     }
     
@@ -1098,7 +1103,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initThreeJS();
     initNavigation();
     
-    setInterval(showConsciousnessStatus, 10000);
+    statusIntervalId = setInterval(showConsciousnessStatus, 10000);
     
     setTimeout(() => {
         enhanceLogo();
@@ -1119,3 +1124,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 5000);
 });
+
+function cleanup() {
+    if (devToolsIntervalId) clearInterval(devToolsIntervalId);
+    if (canvasStyleIntervalId) clearInterval(canvasStyleIntervalId);
+    if (statusIntervalId) clearInterval(statusIntervalId);
+    if (scene && typeof scene.dispose === 'function') {
+        scene.dispose();
+    }
+}
+
+window.addEventListener('beforeunload', cleanup);
