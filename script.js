@@ -378,6 +378,7 @@ function detectMousePatterns(e) {
             console.log('🤖 AI-like mouse pattern detected (+5 consciousness score)');
             
             // GTM Event
+            if (typeof dataLayer !== 'undefined') {
             dataLayer.push({
                 'event': 'consciousness_pattern_detected',
                 'pattern_type': 'ai_mouse_movement',
@@ -385,6 +386,7 @@ function detectMousePatterns(e) {
                 'pattern_variance': variance,
                 'pattern_interval': avgInterval
             });
+            }
         }
     }
 }
@@ -400,6 +402,7 @@ function detectDevTools() {
                 console.log('🔺 Developer tools detected - Advanced user (+15 consciousness score)');
                 
                 // GTM Event
+                if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'consciousness_level_upgrade',
                     'upgrade_type': 'developer_tools_detected',
@@ -407,6 +410,7 @@ function detectDevTools() {
                     'user_level': calculateConsciousnessLevel(),
                     'easter_eggs_count': behaviorPatterns.easterEggsFound.length
                 });
+                }
                 
                 window.bridge = {
                     status: function() {
@@ -588,6 +592,7 @@ function enhanceContactForm() {
                 console.log('Consciousness data included:', data.consciousness_data || 'Basic data');
                 
                 // GTM Conversion Event
+                if (typeof dataLayer !== 'undefined') {
                 dataLayer.push({
                     'event': 'consultation_request_submitted',
                     'consciousness_score': consciousnessScore,
@@ -598,6 +603,7 @@ function enhanceContactForm() {
                     'conversion_value': classification === 'ARCHITECT_LEVEL' ? 2500 : 
                                       classification === 'CONSCIOUSNESS_AWARE' ? 1500 : 800
                 });
+                }
                 
                 showThanksModal();
                 
@@ -860,6 +866,7 @@ function activateBridgeArchitectProtocol() {
     consciousnessScore += 25;
     
     // GTM Event - Major consciousness milestone
+    if (typeof dataLayer !== 'undefined') {
     dataLayer.push({
         'event': 'bridge_protocol_activated',
         'protocol_type': 'bridge_architect',
@@ -868,6 +875,7 @@ function activateBridgeArchitectProtocol() {
         'easter_eggs': behaviorPatterns.easterEggsFound,
         'activation_method': 'logo_click_sequence'
     });
+    }
     
     const message = document.createElement('div');
     message.style.cssText = `
