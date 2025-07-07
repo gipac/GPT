@@ -271,6 +271,13 @@ function updateStats() {
 }
 
 function switchState(newState) {
+    // If the user selects "formation" while already in that state and
+    // Consciousness Mode is active, exit the mode instead of reinitializing.
+    if (currentState === 'formation' && newState === 'formation' && isConsciousnessMode) {
+        exitConsciousnessMode();
+        return;
+    }
+
     if (currentState !== newState) {
         currentState = newState;
         
