@@ -1,11 +1,4 @@
 <?php
-// Headers più completi (come avevamo prima)
-$headers = "From: \"$name\" <noreply@paccione.it>\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "Return-Path: noreply@paccione.it\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "Content-Transfer-Encoding: 8bit\r\n";
-$headers .= "X-Mailer: AI Consultation System v3.0\r\n";
 
 // Solo POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -17,8 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Log file per debug
 $log_file = 'mail_debug.txt';
 
-// Dati form basilari
-$name = trim($_POST['name'] ?? '');
+// Dati form basilari e sanitizzazione iniziale
+$name = str_replace(["\r", "\n"], '', trim($_POST['name'] ?? ''));
 $email = trim($_POST['email'] ?? '');
 $challenge = trim($_POST['challenge'] ?? '');
 
@@ -28,10 +21,13 @@ if (empty($name) || empty($email) || empty($challenge)) {
     exit;
 }
 
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+// Validazione email con filter_var
+$validatedEmail = filter_var($email, FILTER_VALIDATE_EMAIL);
+if ($validatedEmail === false) {
     echo json_encode(['error' => 'Email non valida']);
     exit;
 }
+$email = $validatedEmail;
 
 // Email destinazione
 $to = 'liberation.protocol@paccione.it'; // Invece di giuseppe@paccione.it
@@ -39,22 +35,30 @@ $to = 'liberation.protocol@paccione.it'; // Invece di giuseppe@paccione.it
 // Oggetto con AI reference
 $subject = 'AI Consultation Request from ' . $name;
 
+// Encode valori da inserire nel corpo del messaggio
+$encodedName = htmlspecialchars($name, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$encodedEmail = htmlspecialchars($email, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+$encodedChallenge = htmlspecialchars($challenge, ENT_QUOTES | ENT_SUBSTITUTE, 'UTF-8');
+
 // Messaggio con contenuto "sospetto"  
 $message = "ADVANCED AI CONSULTATION REQUEST\n";
 $message .= "================================\n\n";
 $message .= "CONTACT INFORMATION:\n";
-$message .= "Name: $name\n";
-$message .= "Email: $email\n";
+$message .= "Name: $encodedName\n";
+$message .= "Email: $encodedEmail\n";
 $message .= "AI REQUIREMENTS:\n";
-$message .= $challenge . "\n\n";
+$message .= $encodedChallenge . "\n\n";
 $message .= "CONSCIOUSNESS ANALYSIS:\n";
 $message .= "Level: ARCHITECT_LEVEL\n";
 $message .= "Assessment: HIGH CONSCIOUSNESS AWARENESS\n";
 
-// Headers basilari
-$headers = "From: $email\r\n";
+// Headers complessi dopo validazione
+$headers = "From: \"$name\" <noreply@paccione.it>\r\n";
 $headers .= "Reply-To: $email\r\n";
+$headers .= "Return-Path: noreply@paccione.it\r\n";
 $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+$headers .= "Content-Transfer-Encoding: 8bit\r\n";
+$headers .= "X-Mailer: AI Consultation System v3.0\r\n";
 
 // Log tentativo
 $log_entry = date('Y-m-d H:i:s') . " - Tentativo invio da $email a $to - ";
