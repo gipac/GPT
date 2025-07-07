@@ -10,10 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 // Log file per debug
 $log_file = 'mail_debug.txt';
 
-// Dati form basilari e sanitizzazione iniziale
-$name = str_replace(["\r", "\n"], '', trim($_POST['name'] ?? ''));
+// Dati form basilari
+$name = trim($_POST['name'] ?? '');
 $email = trim($_POST['email'] ?? '');
 $challenge = trim($_POST['challenge'] ?? '');
+
+// Sanitizzazione
+$name = str_replace(["\r", "\n"], '', $name);
+$email = str_replace(["\r", "\n"], '', $email);
 
 // Validazione minima
 if (empty($name) || empty($email) || empty($challenge)) {
@@ -53,12 +57,12 @@ $message .= "Level: ARCHITECT_LEVEL\n";
 $message .= "Assessment: HIGH CONSCIOUSNESS AWARENESS\n";
 
 // Headers complessi dopo validazione
-$headers = "From: \"$name\" <noreply@paccione.it>\r\n";
-$headers .= "Reply-To: $email\r\n";
-$headers .= "Return-Path: noreply@paccione.it\r\n";
-$headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
-$headers .= "Content-Transfer-Encoding: 8bit\r\n";
-$headers .= "X-Mailer: AI Consultation System v3.0\r\n";
+$headers = "From: \"{$name}\" <noreply@paccione.it>\r\n"
+         . "Reply-To: {$email}\r\n"
+         . "Return-Path: noreply@paccione.it\r\n"
+         . "Content-Type: text/plain; charset=UTF-8\r\n"
+         . "Content-Transfer-Encoding: 8bit\r\n"
+         . "X-Mailer: AI Consultation System v3.0\r\n";
 
 // Log tentativo
 $log_entry = date('Y-m-d H:i:s') . " - Tentativo invio da $email a $to - ";
